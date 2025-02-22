@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <form asp-action="UploadImage" asp-controller="Home" method="post" enctype="multipart/form-data">
+        <div>
+            <label for="imageFile">Chọn ảnh:</label>
+            <input type="file" name="imageFile" id="imageFile" class="form-control" />
+        </div>
+        <button type="submit" class="btn btn-primary">Tải lên</button>
+    </form>
+
+    @if (ViewBag.Message != null)
+    {
+        <div class="alert alert-info">@ViewBag.Message</div>
+        <img src="@(ViewBag.FileName)" alt="Uploaded Image" class="img-fluid" />
+    }
+
+    
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
