@@ -28,6 +28,9 @@ namespace OnlineShop
                 options.ApiKey = cloudinarySettings.ApiKey;
                 options.ApiSecret = cloudinarySettings.ApiSecret;
             });
+            builder.Services.AddHttpClient();
+            builder.Services.AddSingleton<IVnPayService, VnPayService>();
+            builder.Services.AddSingleton<IOrderShippingService, OrderShippingService>();
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
